@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://k1q3fnfj4rh5"]
+
+[ext_resource type="Script" path="res://BalloonPopper/balloon.gd" id="1_gqc0t"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_spc1s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n2it"]
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.17
+rim_enabled = true
+rim_tint = 0.41
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ys2nx"]
+
+[node name="Balloon" type="Area3D"]
+script = ExtResource("1_gqc0t")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_spc1s")
+surface_material_override/0 = SubResource("StandardMaterial3D_7n2it")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ys2nx")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

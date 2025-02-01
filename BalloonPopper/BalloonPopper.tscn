@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://b55jw72wtgype"]
+
+[ext_resource type="Script" path="res://BalloonPopper/balloon_manager.gd" id="1_lj11i"]
+[ext_resource type="PackedScene" uid="uid://k1q3fnfj4rh5" path="res://BalloonPopper/balloon.tscn" id="2_nkcx8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p2hmk"]
+font_size = 32
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("score_text")]
+script = ExtResource("1_lj11i")
+score_text = NodePath("ScoreText")
+
+[node name="Balloon" parent="." instance=ExtResource("2_nkcx8")]
+clicks_to_pop = 5
+score_to_give = 2
+
+[node name="Balloon2" parent="." instance=ExtResource("2_nkcx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77335, 1.72071, -0.428226)
+clicks_to_pop = 10
+score_to_give = 5
+
+[node name="Balloon3" parent="." instance=ExtResource("2_nkcx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71974, 0.609823, -0.428226)
+
+[node name="Balloon4" parent="." instance=ExtResource("2_nkcx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73946, -1.53032, -0.146685)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.17212)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.691362, 0.722509, 0, -0.722509, 0.691362, 0, 2.47893, 0)
+
+[node name="ScoreText" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 283.0
+offset_bottom = 98.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_p2hmk")
